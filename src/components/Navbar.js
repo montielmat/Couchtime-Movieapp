@@ -3,16 +3,17 @@ import React from "react";
 import "../index.css"
 
 import { Link, NavLink } from "react-router-dom";
-import logo from "../logopop.png"
+import { SearchForm } from "./SearchForm";
 
 export const Navbar = () => {
   return (
- <nav className="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
-  <Link to="/" className="navbar-brand ">
+ <nav className="navbar navbar-expand-lg navbar-dark bg-dark justify-content-around">
 
+ <div>
+  <Link to="/" className="navbar-brand ">
 <img
 id="logo"
-className="img-fluid animate__animated animate__headShake aniamte__slow" 
+className="img-fluid" 
 style={{height:60,width:55}} 
 alt="Logo"
 src="https://clipground.com/images/popcorn-bucket-clipart-8.png"
@@ -37,6 +38,11 @@ src="https://clipground.com/images/popcorn-bucket-clipart-8.png"
       >
       UpcomingView
       </NavLink>
+
+ </div>
+<div>
+  <SearchForm/>
+</div>
     </nav>
   );
 };

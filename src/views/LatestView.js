@@ -26,13 +26,6 @@ export const LatestView = () => {
   </div>
   :
   <>
-
-  <div className='d-flex mb-3 justify-content-center pb-2 pt-3'>
-    <form className='w-25 text-center'>
-      <input className="form-control" type="search" id="movie_search" placeholder='Search a movie...'/>
-    </form>
-  </div>
-  
   <div className="grid justify-content-center">
     <div className="row row-cols-6 g-4">
       {latest? 

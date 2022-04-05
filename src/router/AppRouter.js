@@ -6,13 +6,16 @@ import { MoreInfo } from "../views/MoreInfo";
 import { LatestView} from "../views/LatestView";
 import { TrendingsView } from "../views/TrendingsView";
 import { UpComingView} from "../views/UpComingView";
+import { Movie } from "../views/Movie";
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home/>} >
+        <Route path="movie/:id" element={<Movie/>} />
+        </Route>
         <Route path="trendings" element ={<TrendingsView/>}/>
         <Route path="latest" element={<LatestView/>}/>
         <Route path="upcoming" element={<UpComingView/>}/>

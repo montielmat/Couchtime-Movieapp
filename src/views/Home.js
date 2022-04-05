@@ -1,6 +1,6 @@
 import React from 'react';
 import"../index.css";
-
+import {Outlet} from "react-router-dom"
 import { MovieCard } from "../components/MovieCard";
 
 import { useCounter } from '../hooks/useCounter';
@@ -25,15 +25,9 @@ export const Home = () => {
 </div>
 :
 <>
-
-<div className='d-flex mb-3 justify-content-center pb-2 pt-3'>
-    <form className='w-25 text-center'>
-      <input className="form-control" type="search" id="movie_search" placeholder='Search a movie...'/>
-    </form>
-  </div>
-
+<Outlet/>
 <div className="grid justify-content-center">
-  <div className="row row-cols-6 g-4">
+  <div className="row row-cols-5 g-4">
     {movies? 
     movies.map((movie_data) => (
           <MovieCard key={movie_data.id}{...movie_data} />
