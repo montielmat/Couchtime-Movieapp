@@ -1,20 +1,16 @@
-import {useState,useMemo} from "react";
+import {useState} from "react";
 
-export const useCounter = (initialState=1) => {
+export const useCounter = (initialCount=1) => {
 
-const [page, setPage] = useState(initialState)
-
-const memoVal=useMemo(() => page, [page,setPage])
-
-
+const [count, setCount] = useState(initialCount)
 
 const nextPage = ()=>{
-setPage(...page,page+1)
+setCount(count+1)
 }
 
 const prevPage = ()=>{
-setPage(...page,page-1)
+setCount(count-1)
 }
 
-return{page,prevPage,nextPage}
+return{count,prevPage,nextPage}
 }

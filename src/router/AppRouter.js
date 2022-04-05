@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { Home } from "../views/Home";
 import { MoreInfo } from "../views/MoreInfo";
-import { NewView } from "../views/NewView";
+import { LatestView} from "../views/LatestView";
 import { TrendingsView } from "../views/TrendingsView";
-import { WeekView } from "../views/WeekView";
+import { UpComingView} from "../views/UpComingView";
 
 export const AppRouter = () => {
   return (
@@ -13,9 +13,9 @@ export const AppRouter = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="week" element={<WeekView/>}/>
         <Route path="trendings" element ={<TrendingsView/>}/>
-        <Route path="new" element={<NewView/>}/>
+        <Route path="latest" element={<LatestView/>}/>
+        <Route path="upcoming" element={<UpComingView/>}/>
         <Route path="more-info/:movieId" element={<MoreInfo/>}/>
       </Routes>
     </BrowserRouter>
