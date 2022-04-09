@@ -15,9 +15,9 @@ export const useFetch = (url) => {
 
   useEffect(() => {
     try {
-      getMovies(url).then((data) => {
+      getMovies(url).then( data => {
         if (isMounted.current) {
-          setState({ ...state, res: data, error: null, loading: false });
+          setState({ ...state, res:data, error: null, loading: false });
         }
       });
     } catch (error) {
