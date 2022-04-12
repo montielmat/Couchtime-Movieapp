@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.903e4140.css",
+    "main.js": "/static/js/main.0c49f4d2.js",
+    "static/media/logopop.png": "/static/media/logopop.7af87b84179468309cb7.png",
+    "index.html": "/index.html",
+    "main.903e4140.css.map": "/static/css/main.903e4140.css.map",
+    "main.0c49f4d2.js.map": "/static/js/main.0c49f4d2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.903e4140.css",
+    "static/js/main.0c49f4d2.js"
+  ]
+}
