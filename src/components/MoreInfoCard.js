@@ -1,5 +1,6 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import { getMovies } from '../helpers/getMovies'
 
 import '../index.css'
 
@@ -9,27 +10,30 @@ export const MoreInfoCard = ({
   poster_path,
   release_date,
   adult,
-  genres,
   overview,
   vote_average,
-  name,
-  tagline
+  tagline,
+  error
 }) => {
   
-// const [rate,setRate] = useState(false)
+const url= `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=e62c23c6a89f44bb94e028fd9db54528&language=en-US&page=1`
+// const [res,loading] = useFetch( `https://api.themoviedb.org/3/movie/${id}/review?api_key=e62c23c6a89f44bb94e028fd9db54528&language=en-US&page=1`)
 
-// const rate_url=`https://api.themoviedb.org/3/movie/${id}/rating?api_key=e62c23c6a89f44bb94e028fd9db54528`
+const [reviews, setReviews] = useState([])
 
-// const addRate = ()=>{
-//  handleSendRate(rate_url)
-//  .then(r => console.log(r))
-// setRate(!rate)
-// console.log(rate)
-// }
+useEffect(() => {
+getMovies(url)
+.then(data=> setReviews(data.results))
+}, [url])
 
   return ( 
-<div className="row mb-3 justify-content-center align-items-center animate__animated animate__backInLeft">
-      
+<div id="mre-inf-card" className="row mb-3  justify-content-center align-items-center animate__animated animate__backInLeft">
+{
+error?
+<h4>Ups</h4>
+:""
+} 
+
 <div className='col-4'>
       <img
       className='rounded img-fluid'
@@ -38,7 +42,7 @@ export const MoreInfoCard = ({
       />
 </div>
 
-<div className='col-8 text-white'>
+<div className='col-6 text-white'>
 
 <div className='d-flex'>
 <h4>{title}</h4>
@@ -85,6 +89,39 @@ export const MoreInfoCard = ({
       <small className="mx-2">Back</small>
       </Link>
 </div>
+
+{/* <div className='col-6 d-flex flex-column g-2 w-100'>
+<div className='m-2 p-3 shadow'>
+
+<div className='row'>
+ {
+  reviews.map( r => (
+
+  r.content.length > 2400
+      ?
+<div className='col-md-2'>
+  <div className='card'>
+ <img 
+ className='card-img-top' 
+ src={`https://image.tmdb.org/t/p/w300${r.author_details.avatar_path}`}
+ /> 
+  <div className='card-body text-dark'>
+  <h5 className='card-title'>{r.author}</h5>
+  <p className='card-text'>{r.content}</p>
+  </div>
+  </div>
+</div>
+:''
+    }
+  ))
+  :''
+}
+
+
+</div>
+
+</div>
+</div> */}
 
 </div>
 
